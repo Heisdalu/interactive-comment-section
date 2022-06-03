@@ -204,6 +204,7 @@ function my_reply(data) {
                 </figure>
 
                 <p class="comment__username">${data.user.username}</p>
+                <span class='user-tag'>you</span>
                 <p class="date__posted"><time id='reply--time'>${
                   data.reply_made_by_user ? "" : data.createdAt
                 }</time></p>
@@ -303,6 +304,7 @@ function my__comment(data) {
               </figure>
 
               <p class="comment__username">${data.user.username}</p>
+              <span class='user-tag'>you</span>
               <p class="date__posted"><time id='time'>${
                 data.commentMade_by_User ? "" : data.createdAt
               }</time></p>
@@ -335,7 +337,7 @@ function my__comment(data) {
           </section>
           
         </article>
- `
+ `;
   return html
 }
 
