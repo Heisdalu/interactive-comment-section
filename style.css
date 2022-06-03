@@ -23,7 +23,8 @@ body {
   background-color: var(--Very-light-gray);
 }
 .wrapper {
-  max-width: 800px;
+  background-color: var(--Very-light-gray);
+  max-width: 700px;
   margin: auto;
   padding: 0 0 2rem 0;
 }
@@ -53,7 +54,10 @@ body {
   grid-column: 1/-1;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+}
+
+.coment__header > * + *{
+  margin-left: 0.5rem;
 }
 
 .comment__username_avi {
@@ -73,6 +77,14 @@ body {
   font-weight: 700;
 }
 
+.user-tag {
+  background-color: var(--Moderate-blue);
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
 .date__posted {
   color: var(--Grayish-Blue);
   font-family: var(--Rubik--font);
@@ -82,7 +94,7 @@ body {
 .comment__box {
   grid-column: 1/-1;
   color: var(--Grayish-Blue);
-  line-height: 1.3rem;
+  line-height: 1.5rem;
   padding-left: 5px;
   border-radius: 10px;
   font-family: var(--Rubik--font);
@@ -132,7 +144,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
   color: var(--Moderate-blue);
   /* font-weight: 600; */
   background-color: transparent;
@@ -141,6 +152,10 @@ body {
   cursor: pointer;
   font-family: var(--Rubik--font);
   font-weight: 700;
+}
+
+.reply__btn img{
+  margin-right: 0.3rem;
 }
 
 .reply__btn:hover {
@@ -155,9 +170,9 @@ body {
 
 .reply__box {
   grid-column: 1/-1;
-  border-left: 1px solid var(--Grayish-Blue);
   padding-left: 1rem;
   margin: 1rem 0;
+  border-left: 1px solid var(--Grayish-Blue);
 }
 
 .reply__disabled {
@@ -178,8 +193,7 @@ body {
   grid-column: 2/-1;
   display: flex;
   justify-content: right;
-  /* flex-wrap: wrap; */
-  gap: 0.2rem;
+  flex-wrap: wrap;
 }
 
 .button_box button {
@@ -188,11 +202,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border: none;
   font-family: var(--Rubik--font);
+}
 
-  /* padding: 0.5rem; */
+.button_box button img {
+  margin-right: 10px;
 }
 
 .button_box button:hover {
@@ -204,6 +219,7 @@ body {
   background-color: transparent;
   font-weight: 600;
   cursor: pointer;
+  margin-right: 0.2rem;
 }
 
 .delete__btn:active {
@@ -393,35 +409,24 @@ body {
 }
 
 div .modal--disabled {
-  transform: translateX(0);
-  animation-name: animate_modal;
-  animation-duration: 0.8s;
-  animation-timing-function: cubic-bezier(0.71, 1.13, 1, 1);
-}
-@keyframes animate_modal {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(0%);
-  }
+  z-index: 1;
+  opacity: 1;
+  transform: all 1s;
 }
 
 .modal {
   position: fixed;
-  /* margin-left: -100%; */
   height: 100%;
   width: 100%;
-  z-index: 11;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.58);
   transition: background-color 2s;
+  z-index: -1;
   display: grid;
   place-items: center;
-  transform: translateX(-100%);
-  transition: transform 1s cubic-bezier(0.93, 0.02, 0.36, 1);
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .delete_popup {
@@ -441,16 +446,19 @@ div .modal--disabled {
 }
 
 .delete_popup p {
+  line-height: 1.5rem;
   padding: 0.5rem 0 0.5rem 0;
   color: var(--Grayish-Blue);
   font-weight: 400;
-  /* border: 1px solid; */
 }
 
 .delete_box {
   margin-top: 10px;
   display: flex;
-  gap: 0.6rem;
+}
+
+.delete_box > * + *{
+  margin-left: 1.2rem;
 }
 
 .delete_box button {
@@ -461,7 +469,6 @@ div .modal--disabled {
   border-radius: 10px;
   border: none;
   font-weight: 400;
-  /* padding: 0 1rem; */
 }
 
 .delete_box button:nth-child(1) {
@@ -478,18 +485,6 @@ div .modal--disabled {
 .delete_box button:active {
   opacity: 0.8;
   background-color: rgba(0, 0, 0, 0.977);
-}
-
-.footer{
-  margin: 0.5rem 0;
-  font-size: 0.5rem;
-  font-family: var(--Rubik--font);
-  text-align: center;
-  word-spacing: 5px;
-}
-
-.love{
-  color: blue;
 }
 
 
@@ -515,7 +510,6 @@ div .modal--disabled {
 
   .coment__header {
     grid-area: 1/2/1/3;
-    gap: 1rem;
   }
 
   .comment__box {
@@ -525,6 +519,7 @@ div .modal--disabled {
 
   .button_box {
     grid-area: 1/3/1/4;
+    flex-wrap: nowrap;
   }
 
   .reply__option {
@@ -560,5 +555,6 @@ div .modal--disabled {
 
   .reply__box {
     padding-left: 2rem;
+    margin-left: 2rem;
   }
 }
