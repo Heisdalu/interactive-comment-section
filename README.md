@@ -22,7 +22,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://daalu-interactive-comment-section.netlify.app/](https://daalu-interactive-comment-section.netlify.app/)
 
 ### Built with
 
